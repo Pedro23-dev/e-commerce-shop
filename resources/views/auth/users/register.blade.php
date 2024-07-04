@@ -2,6 +2,7 @@
 
 
 @section('content')
+<link rel="stylesheet" href="{{asset('css/auth.css')}}">
 
 <div class="container">
     <div class="row">
@@ -9,8 +10,6 @@
             <h2 class="text-center text-dark mt-5">Bienvenue sur Pedro_store 🍏</h2>
             <div class="text-center mb-5 text-dark">Rejoindre en tant qu'utilisateur</div>
             <div class="card my-5">
-
-
 
                 <!-- @if (Session::has('success'))
                 <div class="alert alert-success">
@@ -50,8 +49,7 @@
                         @enderror
                     </div>
                     <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Créer mon compte</button></div>
-                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Se connecter? <a href="#" class="text-dark fw-bold"> Create an
-                            Account</a>
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Déjà inscrit?? <a href="#" class="text-dark fw-bold">Connectez-vous </a>
                     </div>
                 </form>
             </div>

@@ -26,6 +26,8 @@
                      <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                  </button>
              </form>
+
+             @guest
              <div style="margin-left: 1rem;">
                  <li class="nav-item dropdown" style="list-style-type: none;">
                      <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Compte</a>
@@ -34,11 +36,18 @@
                          <li>
                              <hr class="dropdown-divider" />
                          </li>
-                         <li><a class="dropdown-item" href="#!">Me connecter</a></li>
-               
+                         <li><a class="dropdown-item" href="{{route('user.Login')}}">Me connecter</a></li>
+
                      </ul>
                  </li>
              </div>
+             @endguest
+
+             @auth
+
+             <a href="{{route('user.logout')}}" class="btn btn-danger" style="margin-left: 1rem;">Me déconnecter</a>
+             @endauth
+
          </div>
      </div>
  </nav>
