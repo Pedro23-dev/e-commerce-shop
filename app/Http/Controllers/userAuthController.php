@@ -47,7 +47,7 @@ class userAuthController extends Controller
             }
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la tentative de connexion');
-            
+                
         }
     }
 
