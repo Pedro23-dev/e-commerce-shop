@@ -37,4 +37,5 @@ class Vendor extends Authenticatable
     }
     //qui veut dire que je n'ai pas besoin de champ protégé 
     protected $guarded = [];
+    
 }
