@@ -49,7 +49,7 @@
                         @enderror
                     </div>
                     <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Me connecter</button></div>
-                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Nouveau??<a href="#" class="text-dark fw-bold">Créer mon compte</a>
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Nouveau??<a href="{{route('user.register')}}" class="text-dark fw-bold">Créer mon compte</a>
                     </div>
                 </form>
             </div>

@@ -72,17 +72,18 @@ class VendorAuthController extends Controller
         ]);
         try {
 
-            dd($request);
-            // // Comparer les valeurs entrées par l'utilisateur
-            // if (auth()->attempt($request->only('email', 'password'))) {
-            //     //rediriger sur la page d'acueil
-            //     return redirect('/');
-            // } else {
-            //     //retourner un message d'erreur avec redirection
-            //     return redirect()->back()->with('error', 'Information de connexion non reconnu');
-            // }
+            if (auth('vendor')->attempt($request ->only('email', 'password'))){
+                return redirect('vendors/dashboard');
+                // il y'a cette methode aussi
+                // return redirect()->route('vendors.dashboard');
+
+            }else{
+                return redirect()->back()->with('error', 'Information de connexion de compte boutique non reconnu');
+            }
+
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Une erreur est survenue lors de la tentative de connexion');
+            dd($e);
+        //  return redirect()->back()->with('error', 'Une erreur est survenue lors de la tentative de connexion');
         }
     }
         

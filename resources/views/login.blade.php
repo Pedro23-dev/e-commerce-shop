@@ -50,7 +50,7 @@
                         @enderror
                     </div>
                     <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Créer mon compte</button></div>
-                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Se connecter? <a href="#" class="text-dark fw-bold"> Create an
+                    <div id="emailHelp" class="form-text text-center mb-5 text-dark">Se connecter? <a href="" class="text-dark fw-bold"> Create an
                             Account</a>
                     </div>
                 </form>

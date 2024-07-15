@@ -22,6 +22,10 @@
 
                 <div class="alert alert-success">{{Session::get('success')}}</div>
                 @endif
+                @if (Session::get("error"))
+
+                <div class="alert alert-danger">{{Session::get('error')}}</div>
+                @endif
 
                 <form class="card-body cardbody-color p-lg-5" method="POST" action="{{route('vendors.handleLogin')}}">
                     @csrf
