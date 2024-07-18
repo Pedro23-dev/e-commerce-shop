@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ArticleController extends Controller
 {
     public function index(){
-        $articles= Product::latest()->with('image')->get();
+        $articles= Product::where('vendor_id', auth('vendor')->user()->id)->latest()->with('image')->get();
         return view('dashboard.vendors.articles.index',compact('articles'));
         
     }
@@ -22,12 +22,14 @@ class ArticleController extends Controller
     public function handleCreate(Request $request){
         $request->validate([
             'name' => 'required',
-            // 'description' =>'required',
+            'description' =>'required',
             'price' => 'required|integer'
+            
+            
             // 'image' =>'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ], [
             'name.required' => 'Le nom du produit est requis',
-            // 'description.required' => 'required',
+            'description.required' => 'La description du produit est requise',
             'price.required' => 'Le prix du produit est requis',
             // 'price.integer' => 'price must be integer',
             // // 'image.required' => 'required',

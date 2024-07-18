@@ -44,7 +44,8 @@
                         <td>{{$article->name}}</td>
                         <td>{{$article->price}}</td>
                         <td>{{$article->active? 'Disponible':'Rupture de stock'}}</td>
-                        <td></td>
+                        <td> <a href="#" class="btn btn-primary">modifier l'article</a>
+                             <a href="#" class="btn btn-danger">Supprimer l'article</a></td>
                     </tr>
                     @endforeach
                   

@@ -1,17 +1,29 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\userAuthController;
 use App\Http\Controllers\VendorAuthController;
 use App\Http\Controllers\Vendors\VendorDashboard;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('welcome');
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/', [WebsiteController::class, 'vue']);
+Route::get('/home', [WebsiteController::class, 'vue']);
+
 
 // Route::get('/login', [userAuthController::class, 'login'])->name('login');
 
@@ -56,6 +68,10 @@ Route::middleware('vendor')->prefix('vendors/dashboard')->group(function () {
         Route::post('/create', [ArticleController::class, 'handleCreate'])->name('articles.handleCreate');
 
     });
+
+    Route::get('payment-configuration', [PaymentController::class,'getAccountInfo'])->name('payment-configuration');
+        
+    Route::post('handle-payment-configuration', [PaymentController::class,'handleUpdateInfo'])->name('payment.configuration');
         
 
         Route::get('/logout', [VendorDashboard::class, 'logout'])->name('vendors.logout');

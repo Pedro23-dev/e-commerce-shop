@@ -70,6 +70,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Paiements
                         </a>
+                        <a class="nav-link" href="{{route('payment-configuration')}}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Configurations
+                        </a>
                     </div>
                 </div>
                 {{-- <div class="sb-sidenav-footer">

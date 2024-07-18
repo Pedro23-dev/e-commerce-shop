@@ -20,7 +20,7 @@
                     @csrf
                 <div class="form-group mb-4">
                     <label for="">Image du produit</label>
-                    <input type="file" name="image" class="form-control" accept=".png, .jpg" id="">
+                    <input type="file" name="image" class="form-control" accept=".png, .jpeg, .jpg" id="">
                 </div>
                 <div class="form-group mb-4">
                     <label for="">Libelle du produit</label>
