@@ -11,12 +11,15 @@ class PaymentController extends Controller
 {
     public function getAccountInfo()
     {
-        return view('dashboard.vendors.manage.payment');
+        $vendorId = auth('vendor')->user()->id;
+        $paymentInfo = PaymentGateway::where('vendor_id', $vendorId)->first();
+
+        return view('dashboard.vendors.manage.payment', compact('paymentInfo'));
     }
     public function handleUpdateInfo(Request $request)
     {
 
-        DB::beginTransaction();
+        // DB::beginTransaction();
         // dd($request);
         // Validate the request data
         $request->validate(
@@ -37,6 +40,10 @@ class PaymentController extends Controller
 
             $existingAccount = PaymentGateway::where('vendor_id', $vendorId)->first();
             if ($existingAccount) {
+                $existingAccount ->site_id = $request -> site_id;
+                $existingAccount ->api_key = $request -> api_key;
+                $existingAccount ->secret_key = $request -> secret_key;
+                $existingAccount ->update();
             } else {
                 PaymentGateway::create([
                     'vendor_id' => $vendorId,
@@ -48,11 +55,11 @@ class PaymentController extends Controller
 
             return redirect()->back()->with('success', 'Donnée enregistrée');
 
-            DB::commit();
+            // DB::commit();
             // return redirect()->back()->with('success', 'Donnée enregistrée');
         } catch (Exception $e) {
             dd($e);
-            DB::rollback();
+            // DB::rollback();
         }
     }
 }

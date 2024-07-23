@@ -66,6 +66,11 @@ class ArticleController extends Controller
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+    public function delete(Product $article)
+    {
+        $article->delete();
+        return back()->with("successDelete", "Article supprimé avec succès");
+    }
     public function handleImageUpload($data, $request, $inputKey,$destination,$attributeName){
 
      if ($request->hasFile($inputKey

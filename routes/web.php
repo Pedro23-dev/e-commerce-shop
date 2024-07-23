@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\userAuthController;
+use App\Http\Controllers\userPaymentController;
 use App\Http\Controllers\VendorAuthController;
 use App\Http\Controllers\Vendors\VendorDashboard;
 use App\Http\Controllers\WebsiteController;
@@ -43,6 +44,8 @@ Route::middleware('guest')->group(function () {
 });
 //la route qui sera appelée que quand l'utilisateur est connectée
 Route::middleware('auth')->group(function () {
+
+    Route::get('/articles/order/{id}',[userPaymentController::class, 'initPayment'])->name('order.article');
     //Déconnexion
     Route::get('/logout', [userAuthController::class, 'handleLogout'])->name('user.logout');
 });
@@ -75,6 +78,7 @@ Route::middleware('vendor')->prefix('vendors/dashboard')->group(function () {
         
 
         Route::get('/logout', [VendorDashboard::class, 'logout'])->name('vendors.logout');
+    Route::delete('/article/{article}', [ArticleController::class, "delete"])->name("article.supprimer");
     });
     
 // });

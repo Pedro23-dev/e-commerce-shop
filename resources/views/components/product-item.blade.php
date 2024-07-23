@@ -33,7 +33,7 @@
                     <!-- Product actions-->
                     @auth
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Payer</a>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{route('order.article', $article->id )}}">Payer</a>
                         </div>
                     </div>
                       @endauth
